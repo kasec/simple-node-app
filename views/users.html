@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      h1 {
+        background-color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Users</h1>
+    <a href="/clients">Go to clients</a>
+    <a href="/">Go Home</a>
+
+    <section id="users"></section>
+  </body>
+  <script>
+    fetch("http://localhost:3000/api/users")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        console.log({ data });
+        const sectionEl = document.getElementById("users");
+        const createNode = (name) => {
+          const ele = document.createElement(name);
+          ele.innerHTML = name;
+          return ele;
+        };
+        data.clients.map((client) => {
+          sectionEl.appendChild(createNode(client.name));
+        });
+      });
+  </script>
+</html>

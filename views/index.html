@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      h1 {
+        background-color: aqua;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>hello world</h1>
+    <a href="/users">Go to users</a>
+    <a href="/clients">Go clients</a>
+    <div id="app">
+      <button id="counter-btn">Count is</button>
+      <span id="counter-value" data-value="0">0</span>
+    </div>
+    <script>
+      const counterBtn = document.getElementById("counter-btn");
+      const counterValue = document.getElementById("counter-value");
+
+      counterBtn.addEventListener("click", () => {
+        const counter = Number(counterValue.dataset.value);
+        counterValue.dataset.value = counter + 1;
+        counterValue.innerHTML = counterValue.dataset.value;
+      });
+    </script>
+  </body>
+</html>
